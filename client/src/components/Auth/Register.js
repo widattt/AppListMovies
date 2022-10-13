@@ -40,7 +40,7 @@ export default function SignUp() {
         if(response.data) {
             localStorage.removeItem('token')
             localStorage.setItem('token', response.data.token)
-            window.location.href = '/movies'
+            window.location.href = '/'
         }
     } catch (error) {
         alert('Existed Name or Email')

@@ -41,7 +41,7 @@ export default function SignIn() {
         if(response.status === 200) {
             localStorage.removeItem('token')
             localStorage.setItem('token', response.data.data.token)
-            window.location.href = '/movies'
+            window.location.href = '/'
         } 
     } catch (error) {
         alert('Email or password is wrong')
