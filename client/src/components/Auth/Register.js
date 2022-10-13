@@ -39,7 +39,7 @@ export default function SignUp() {
         const response = await axios.post(`http://localhost:5000/auth/register`, info)
         if(response.data) {
             localStorage.removeItem('token')
-            localStorage.setItem('token', response.data.token)
+            localStorage.setItem('token', response.data.data.token)
             window.location.href = '/'
         }
     } catch (error) {
