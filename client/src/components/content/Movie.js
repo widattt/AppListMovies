@@ -14,6 +14,10 @@ export default function Movie({props}) {
   const {user} = useSelector(state => state.user)
   const dispatch = useDispatch()
 
+  const checkExist = (arr, id) => {
+    const result = arr.find(e => e === id)
+    return result ? true : false
+  }
   const handleOnClick = (idUser, idMovie, index) => {
     dispatch(updateLikeBtn({
       idUser,
@@ -43,7 +47,7 @@ export default function Movie({props}) {
       </CardContent>
       <CardActions sx={{mx: 1}} disableSpacing>
         <Typography>{`${props.likes.length} Likes`}</Typography>
-        <IconButton aria-label="add to favorites" onClick={(e) => handleOnClick(user.id,props._id, props.index)}>
+        <IconButton aria-label="add to favorites" color={checkExist(props.likes, user.id) ? 'error' : 'primary'} onClick={(e) => handleOnClick(user.id,props._id, props.index)}>
             <ThumbUpOffAltIcon />
           </IconButton>
       </CardActions>

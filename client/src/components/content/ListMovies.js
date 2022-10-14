@@ -21,7 +21,7 @@ function ListMovies() {
   useEffect(() => {
     dispatch(getListMovies({type: 'getListMovies', payload: page}))
     setPage(prev => prev + 1)
-  }, [dispatch]) 
+  }, []) 
 
   const fetchMoreData = () => {
     setPage(prev => prev + 1)
